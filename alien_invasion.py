@@ -1,5 +1,5 @@
-import sys
 import pygame
+import game_function as gf
 import ship
 
 class AlienInvasion():
@@ -23,11 +23,8 @@ class AlienInvasion():
         SHIP = ship.Ship(screen)
 
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-            screen.fill(self.WindowColor)
-            SHIP.blitme()
+            gf.check_events()
+            gf.update_screen(self.WindowColor, screen, SHIP)
             pygame.display.flip()
 
 if __name__ == "__main__":
