@@ -18,7 +18,7 @@ class AlienInvasion():
         pygame.display.set_caption(self.setting.WindowTitle)
         screen = pygame.display.set_mode((self.setting.WindowWeight, self.setting.WindowHeight))
         
-        Ship = ship.Ship(screen)
+        Ship = ship.Ship(self.setting, screen)
 
         while True:
             gf.check_events(Ship)

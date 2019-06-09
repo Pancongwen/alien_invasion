@@ -10,3 +10,4 @@ class Setting():
         self.WindowTitle = "Alien Invasion"
         self.WindowColor = (230, 230, 230)
     
+        self.ShipSpeed = 1
