@@ -9,9 +9,15 @@ def check_events(ship):
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                ship.rect.centerx += 5
+                ship.MovingRight = True
             elif event.key == pygame.K_LEFT:
-                ship.rect.centerx -= 5
+                ship.MovingLeft = True
+            
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                ship.MovingRight = False
+            elif event.key == pygame.K_LEFT:
+                ship.MovingLeft = False
 
 def update_screen(setting, screen, ship):
     """
