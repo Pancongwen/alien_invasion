@@ -20,11 +20,11 @@ class AlienInvasion():
         pygame.display.set_caption(self.WindowTitle)
         screen = pygame.display.set_mode((self.WindowWeight, self.WindowHeight))
         
-        SHIP = ship.Ship(screen)
+        Ship = ship.Ship(screen)
 
         while True:
-            gf.check_events()
-            gf.update_screen(self.WindowColor, screen, SHIP)
+            gf.check_events(Ship)
+            gf.update_screen(self.WindowColor, screen, Ship)
             pygame.display.flip()
 
 if __name__ == "__main__":
