@@ -23,11 +23,11 @@ class Ship():
     def update(self):
         """
         """
-        if self.MovingRight:
+        if self.MovingRight and self.rect.right < self.screen_rect.right:
             self.rect.centerx += self.setting.ShipSpeed
         # use if not elif
         # if type down both left and right, it will stay still
-        if self.MovingLeft:
+        if self.MovingLeft and self.rect.left > 0:
             self.rect.centerx -= self.setting.ShipSpeed
 
     def blitme(self):
