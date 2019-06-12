@@ -18,16 +18,24 @@ def check_keyup_event(event, ship):
     """
     if event.key == pygame.K_RIGHT:
         ship.MovingRight = False
-    elif event.key == pygame.K_LEFT:
+    if event.key == pygame.K_LEFT:
         ship.MovingLeft = False
+    if event.key == pygame.K_UP:
+        ship.MovingUp = False
+    if event.key == pygame.K_DOWN:
+        ship.MovingDown = False
 
 def check_keydown_event(event, ship):
     """
     """
     if event.key == pygame.K_RIGHT:
         ship.MovingRight = True
-    elif event.key == pygame.K_LEFT:
+    if event.key == pygame.K_LEFT:
         ship.MovingLeft = True
+    if event.key == pygame.K_UP:
+        ship.MovingUp = True
+    if event.key == pygame.K_DOWN:
+        ship.MovingDown = True
 
 def update_screen(setting, screen, ship):
     """

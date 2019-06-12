@@ -19,6 +19,8 @@ class Ship():
         # move variabes
         self.MovingRight = False
         self.MovingLeft = False
+        self.MovingUp = False
+        self.MovingDown = False
 
     def update(self):
         """
@@ -29,6 +31,12 @@ class Ship():
         # if type down both left and right, it will stay still
         if self.MovingLeft and self.rect.left > 0:
             self.rect.centerx -= self.setting.ShipSpeed
+
+        if self.MovingUp and self.rect.bottom > 0:
+            self.rect.bottom -= self.setting.ShipSpeed
+
+        if self.MovingDown and self.rect.bottom < self.screen_rect.bottom:
+            self.rect.bottom += self.setting.ShipSpeed
 
     def blitme(self):
         """
