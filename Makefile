@@ -8,3 +8,4 @@ unittest:
 	coverage report -m
 
 pylint:
+	pylint alien_invasion.py

@@ -1,35 +1,31 @@
-import sys
 import pygame
+import game_function as gf
+import setting
 import ship
 
 class AlienInvasion():
     """
     """
-    def __init__(self):
+    def __init__(self, setting):
         """
         """
-        self.WindowWeight = 1200
-        self.WindowHeight = 800
-        self.WindowTitle = "Alien Invasion"
-        self.WindowColor = (230, 230, 230)
+        self.setting = setting.Setting()
 
     def run(self):
         """
         """
         pygame.init()
-        pygame.display.set_caption(self.WindowTitle)
-        screen = pygame.display.set_mode((self.WindowWeight, self.WindowHeight))
+        pygame.display.set_caption(self.setting.WindowTitle)
+        screen = pygame.display.set_mode((self.setting.WindowWeight, self.setting.WindowHeight))
         
-        SHIP = ship.Ship(screen)
+        Ship = ship.Ship(self.setting, screen)
 
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-            screen.fill(self.WindowColor)
-            SHIP.blitme()
+            gf.check_events(Ship)
+            Ship.update()
+            gf.update_screen(self.setting.WindowColor, screen, Ship)
             pygame.display.flip()
 
 if __name__ == "__main__":
-    GAME = AlienInvasion()
+    GAME = AlienInvasion(setting)
     GAME.run()
