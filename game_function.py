@@ -8,18 +8,6 @@ def check_events(ship):
         if event.type == pygame.QUIT:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-<<<<<<< HEAD
-            if event.key == pygame.K_RIGHT:
-                ship.MovingRight = True
-            elif event.key == pygame.K_LEFT:
-                ship.MovingLeft = True
-            
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_RIGHT:
-                ship.MovingRight = False
-            elif event.key == pygame.K_LEFT:
-                ship.MovingLeft = False
-=======
             check_keydown_event(event, ship)
             
         elif event.type == pygame.KEYUP:
@@ -48,7 +36,6 @@ def check_keydown_event(event, ship):
         ship.MovingUp = True
     if event.key == pygame.K_DOWN:
         ship.MovingDown = True
->>>>>>> c0397d8c297c5e72b04bbdeefb6702a648d58465
 
 def update_screen(setting, screen, ship):
     """
