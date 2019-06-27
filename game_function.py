@@ -2,7 +2,7 @@ import sys
 import pygame
 
 def check_events(ship):
-    """
+    """Respond to button and mouse events
     """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -14,7 +14,7 @@ def check_events(ship):
             check_keyup_event(event, ship)
 
 def check_keyup_event(event, ship):
-    """
+    """Respond to button and mouse events
     """
     if event.key == pygame.K_RIGHT:
         ship.MovingRight = False
@@ -26,7 +26,7 @@ def check_keyup_event(event, ship):
         ship.MovingDown = False
 
 def check_keydown_event(event, ship):
-    """
+    """Respond to button and mouse events
     """
     if event.key == pygame.K_RIGHT:
         ship.MovingRight = True
@@ -38,7 +38,7 @@ def check_keydown_event(event, ship):
         ship.MovingDown = True
 
 def update_screen(setting, screen, ship):
-    """
+    """Update the image on the screen and switch to the new screen
     """
     screen.fill(setting)
     ship.blitme()

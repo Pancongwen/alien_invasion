@@ -1,10 +1,10 @@
 import pygame
 
 class Ship():
-    """
+    """Creat class ship
     """
     def __init__(self, setting, screen):
-        """
+        """Initialize the spacecraft and set its initial position
         """
         self.setting = setting
         self.screen = screen
@@ -23,7 +23,7 @@ class Ship():
         self.MovingDown = False
 
     def update(self):
-        """
+        """Adjust the position of the spacecraft according to the moving sign
         """
         if self.MovingRight and self.rect.right < self.screen_rect.right:
             self.rect.centerx += self.setting.ShipSpeed
@@ -39,7 +39,7 @@ class Ship():
             self.rect.bottom += self.setting.ShipSpeed
 
     def blitme(self):
-        """
+        """Draw the image to a specified location on the screen
         """
         self.screen.blit(self.image, self.rect)
 

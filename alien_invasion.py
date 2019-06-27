@@ -4,15 +4,15 @@ import setting
 import ship
 
 class AlienInvasion():
-    """
+    """Creat class AlienInvasion
     """
     def __init__(self, setting):
-        """
+        """Initialize the game's settings
         """
         self.setting = setting.Setting()
 
     def run(self):
-        """
+        """Initialize the game and create a screen object
         """
         pygame.init()
         pygame.display.set_caption(self.setting.WindowTitle)
