@@ -1,17 +1,20 @@
 import sys
 import pygame
 
-def check_events(ship):
+from bullet import Bullet
+
+def check_events(setting, screen, ship, bullets):
     """Respond to button and mouse events
     """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-        elif event.type == pygame.KEYDOWN:
-            check_keydown_event(event, ship)
-            
+
         elif event.type == pygame.KEYUP:
             check_keyup_event(event, ship)
+
+        elif event.type == pygame.KEYDOWN:
+            check_keydown_event(event, setting, screen, ship, bullets)
 
 def check_keyup_event(event, ship):
     """Respond to button and mouse events
@@ -25,7 +28,7 @@ def check_keyup_event(event, ship):
     if event.key == pygame.K_DOWN:
         ship.MovingDown = False
 
-def check_keydown_event(event, ship):
+def check_keydown_event(event, setting, screen, ship, bullets):
     """Respond to button and mouse events
     """
     if event.key == pygame.K_RIGHT:
@@ -36,9 +39,14 @@ def check_keydown_event(event, ship):
         ship.MovingUp = True
     if event.key == pygame.K_DOWN:
         ship.MovingDown = True
+    elif event.key == pygame.K_SPACE:
+        new_bullet = Bullet(setting, screen, ship)
+        bullets.add(new_bullet)
 
-def update_screen(setting, screen, ship):
+def update_screen(setting, screen, ship, bullets):
     """Update the image on the screen and switch to the new screen
     """
     screen.fill(setting)
+    for bullet in bullets.sprites():
+        bullet.draw()
     ship.blitme()

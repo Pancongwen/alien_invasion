@@ -11,3 +11,8 @@ class Setting():
         self.WindowColor = (230, 230, 230)
     
         self.ShipSpeed = 1
+
+        self.BulletSpeedFactor = 1
+        self.BulletWidth = 3
+        self.BulletHeight = 13
+        self.BulletColor = 60, 60, 60
