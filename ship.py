@@ -38,6 +38,9 @@ class Ship():
         if self.MovingDown and self.rect.bottom < self.screen_rect.bottom:
             self.rect.bottom += self.setting.ShipSpeed
 
+        if self.MovingUp and self.rect.top < self.screen_rect.top:
+            self.rect.top += self.setting.ShipSpeed
+
     def blitme(self):
         """Draw the image to a specified location on the screen
         """
