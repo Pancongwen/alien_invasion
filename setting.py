@@ -16,3 +16,4 @@ class Setting():
         self.BulletWidth = 3
         self.BulletHeight = 13
         self.BulletColor = 60, 60, 60
+        self.BulletAllowed = 3
