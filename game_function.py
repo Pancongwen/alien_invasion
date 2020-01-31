@@ -69,17 +69,29 @@ def fire_bullets(setting, screen, ship, bullets):
     if len(bullets) < setting.BulletAllowed:
         new_bullet = Bullet(setting, screen, ship)
         bullets.add(new_bullet)
+        
+def get_number_aliens_x(setting, alien_width):
+    """
+    """
+    avaliable_space_x = setting.WindowWidth - 2 * alien_width
+    number_aliens_x = int(avaliable_space_x / (2 * alien_width))
+    return number_aliens_x
+
+def create_alien(setting, screen, aliens, alien_number):
+    """
+    """
+    alien = Alien(setting, screen)
+    alien_width = alien.rect.width
+    alien.x = alien_width + 2 * alien_width * alien_number
+    alien.rect.x = alien.x
+    aliens.add(alien)
 
 def create_fleet(setting, screen, aliens):
     """
     """
     alien = Alien(setting, screen)
     alien_width = alien.rect.width
-    avaliable_space_x = setting.WindowWidth - 2 * alien_width
-    number_aliens_x = int(avaliable_space_x / (2 * alien_width))
+    number_aliens_x = get_number_aliens_x(setting, alien_width)
 
     for alien_number in range(number_aliens_x):
-        alien = Alien(setting, screen)
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        aliens.add(alien)
+        create_alien(setting, screen, aliens, alien_number)
