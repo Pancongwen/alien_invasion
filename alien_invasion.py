@@ -27,11 +27,7 @@ class AlienInvasion():
             gf.check_events(self.setting, screen, Ship, bullets)
             Ship.update()
             bullets.update()
-
-            for bullet in bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    bullets.remove(bullet)
-            #print(len(bullets))
+            gf.update_bullets(bullets)
             gf.update_screen(self.setting.WindowColor, screen, Ship, bullets)
             pygame.display.flip()
 

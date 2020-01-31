@@ -51,3 +51,11 @@ def update_screen(setting, screen, ship, bullets):
     for bullet in bullets.sprites():
         bullet.draw()
     ship.blitme()
+
+def update_bullets(bullets):
+    """Update bullets location and remove bullets that fly out of window
+    """
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+    #print(len(bullets))
