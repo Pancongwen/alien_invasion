@@ -27,7 +27,7 @@ class AlienInvasion():
         aliens = Group()
 
         # create alien fleet
-        gf.create_fleet(self.setting, screen, aliens)
+        gf.create_fleet(self.setting, screen, ship, aliens)
 
         while True:
             gf.check_events(self.setting, screen, ship, bullets)
