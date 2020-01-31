@@ -2,6 +2,7 @@ import sys
 import pygame
 
 from bullet import Bullet
+from alien import Alien
 
 def check_events(setting, screen, ship, bullets):
     """Respond to button and mouse events
@@ -51,7 +52,7 @@ def update_screen(setting, screen, ship, alien, bullets):
     for bullet in bullets.sprites():
         bullet.draw()
     ship.blitme()
-    alien.blitme()
+    alien.draw(screen)
 
 def update_bullets(bullets):
     """Update bullets location and remove bullets that fly out of window
@@ -68,3 +69,17 @@ def fire_bullets(setting, screen, ship, bullets):
     if len(bullets) < setting.BulletAllowed:
         new_bullet = Bullet(setting, screen, ship)
         bullets.add(new_bullet)
+
+def create_fleet(setting, screen, aliens):
+    """
+    """
+    alien = Alien(setting, screen)
+    alien_width = alien.rect.width
+    avaliable_space_x = setting.WindowWeight - 2 * alien_width
+    number_aliens_x = int(avaliable_space_x / (2 * alien_width))
+
+    for alien_number in range(number_aliens_x):
+        alien = Alien(setting, screen)
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        aliens.add(alien)

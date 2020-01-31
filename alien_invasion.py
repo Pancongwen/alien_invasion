@@ -21,15 +21,19 @@ class AlienInvasion():
         pygame.display.set_caption(self.setting.WindowTitle)
         screen = pygame.display.set_mode((self.setting.WindowWeight, self.setting.WindowHeight))
         
+        # create ship, bullets group and aliens group
         ship = Ship(self.setting, screen)
         bullets = Group()
-        alien = Alien(self.setting, screen)
+        aliens = Group()
+
+        # create alien fleet
+        gf.create_fleet(self.setting, screen, aliens)
 
         while True:
             gf.check_events(self.setting, screen, ship, bullets)
             ship.update()
             gf.update_bullets(bullets)
-            gf.update_screen(self.setting.WindowColor, screen, ship, alien, bullets)
+            gf.update_screen(self.setting.WindowColor, screen, ship, aliens, bullets)
             pygame.display.flip()
 
 if __name__ == "__main__":
