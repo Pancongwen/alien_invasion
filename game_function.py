@@ -75,7 +75,7 @@ def create_fleet(setting, screen, aliens):
     """
     alien = Alien(setting, screen)
     alien_width = alien.rect.width
-    avaliable_space_x = setting.WindowWeight - 2 * alien_width
+    avaliable_space_x = setting.WindowWidth - 2 * alien_width
     number_aliens_x = int(avaliable_space_x / (2 * alien_width))
 
     for alien_number in range(number_aliens_x):

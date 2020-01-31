@@ -19,7 +19,7 @@ class AlienInvasion():
         """
         pygame.init()
         pygame.display.set_caption(self.setting.WindowTitle)
-        screen = pygame.display.set_mode((self.setting.WindowWeight, self.setting.WindowHeight))
+        screen = pygame.display.set_mode((self.setting.WindowWidth, self.setting.WindowHeight))
         
         # create ship, bullets group and aliens group
         ship = Ship(self.setting, screen)
