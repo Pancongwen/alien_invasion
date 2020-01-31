@@ -40,9 +40,7 @@ def check_keydown_event(event, setting, screen, ship, bullets):
     if event.key == pygame.K_DOWN:
         ship.MovingDown = True
     elif event.key == pygame.K_SPACE:
-        if len(bullets) < setting.BulletAllowed:
-            new_bullet = Bullet(setting, screen, ship)
-            bullets.add(new_bullet)
+        fire_bullets(setting, screen, ship, bullets)
 
 def update_screen(setting, screen, ship, bullets):
     """Update the image on the screen and switch to the new screen
@@ -60,3 +58,10 @@ def update_bullets(bullets):
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
     #print(len(bullets))
+
+def fire_bullets(setting, screen, ship, bullets):
+    """Fire bullets if bullets number is not reach limit
+    """
+    if len(bullets) < setting.BulletAllowed:
+        new_bullet = Bullet(setting, screen, ship)
+        bullets.add(new_bullet)
