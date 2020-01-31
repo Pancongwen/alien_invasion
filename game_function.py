@@ -41,6 +41,8 @@ def check_keydown_event(event, setting, screen, ship, bullets):
         ship.MovingDown = True
     elif event.key == pygame.K_SPACE:
         fire_bullets(setting, screen, ship, bullets)
+    elif event.key == pygame.K_q:
+        sys.exit()
 
 def update_screen(setting, screen, ship, bullets):
     """Update the image on the screen and switch to the new screen
