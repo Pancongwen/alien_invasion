@@ -3,7 +3,7 @@ from pygame.sprite import Group
 
 import game_function as gf
 import setting
-import ship
+from ship import Ship
 from alien import Alien
 
 class AlienInvasion():
@@ -21,15 +21,15 @@ class AlienInvasion():
         pygame.display.set_caption(self.setting.WindowTitle)
         screen = pygame.display.set_mode((self.setting.WindowWeight, self.setting.WindowHeight))
         
-        Ship = ship.Ship(self.setting, screen)
+        ship = Ship(self.setting, screen)
         bullets = Group()
         alien = Alien(self.setting, screen)
 
         while True:
-            gf.check_events(self.setting, screen, Ship, bullets)
-            Ship.update()
+            gf.check_events(self.setting, screen, ship, bullets)
+            ship.update()
             gf.update_bullets(bullets)
-            gf.update_screen(self.setting.WindowColor, screen, Ship, alien, bullets)
+            gf.update_screen(self.setting.WindowColor, screen, ship, alien, bullets)
             pygame.display.flip()
 
 if __name__ == "__main__":
