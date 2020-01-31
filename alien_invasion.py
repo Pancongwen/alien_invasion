@@ -4,6 +4,7 @@ from pygame.sprite import Group
 import game_function as gf
 import setting
 import ship
+from alien import Alien
 
 class AlienInvasion():
     """Creat class AlienInvasion
@@ -22,12 +23,13 @@ class AlienInvasion():
         
         Ship = ship.Ship(self.setting, screen)
         bullets = Group()
+        alien = Alien(self.setting, screen)
 
         while True:
             gf.check_events(self.setting, screen, Ship, bullets)
             Ship.update()
             gf.update_bullets(bullets)
-            gf.update_screen(self.setting.WindowColor, screen, Ship, bullets)
+            gf.update_screen(self.setting.WindowColor, screen, Ship, alien, bullets)
             pygame.display.flip()
 
 if __name__ == "__main__":

@@ -44,13 +44,14 @@ def check_keydown_event(event, setting, screen, ship, bullets):
     elif event.key == pygame.K_q:
         sys.exit()
 
-def update_screen(setting, screen, ship, bullets):
+def update_screen(setting, screen, ship, alien, bullets):
     """Update the image on the screen and switch to the new screen
     """
     screen.fill(setting)
     for bullet in bullets.sprites():
         bullet.draw()
     ship.blitme()
+    alien.blitme()
 
 def update_bullets(bullets):
     """Update bullets location and remove bullets that fly out of window
