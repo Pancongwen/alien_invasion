@@ -2,7 +2,7 @@ import pygame
 from pygame.sprite import Group
 
 import game_function as gf
-import setting
+from setting import Setting
 from ship import Ship
 from alien import Alien
 
@@ -12,7 +12,7 @@ class AlienInvasion():
     def __init__(self, setting):
         """Initialize the game's settings
         """
-        self.setting = setting.Setting()
+        self.setting = Setting()
 
     def run(self):
         """Initialize the game and create a screen object
@@ -33,5 +33,5 @@ class AlienInvasion():
             pygame.display.flip()
 
 if __name__ == "__main__":
-    GAME = AlienInvasion(setting)
+    GAME = AlienInvasion(Setting)
     GAME.run()
