@@ -54,7 +54,7 @@ def update_screen(setting, screen, ship, alien, bullets):
     ship.blitme()
     alien.draw(screen)
 
-def update_bullets(aliens, bullets):
+def update_bullets(setting, screen, ship, aliens, bullets):
     """Update bullets location and remove bullets that fly out of window
     """
     bullets.update()
@@ -66,6 +66,10 @@ def update_bullets(aliens, bullets):
     # check if bullet hit the alien
     # if so, remove the bullet and alien
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        bullets.empty()
+        create_fleet(setting, screen, ship, aliens)
 
 def fire_bullets(setting, screen, ship, bullets):
     """Fire bullets if bullets number is not reach limit

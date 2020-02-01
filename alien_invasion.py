@@ -32,7 +32,7 @@ class AlienInvasion():
         while True:
             gf.check_events(self.setting, screen, ship, bullets)
             ship.update()
-            gf.update_bullets(aliens, bullets)
+            gf.update_bullets(self.setting, screen, ship, aliens, bullets)
             gf.update_aliens(self.setting, aliens)
             gf.update_screen(self.setting.WindowColor, screen, ship, aliens, bullets)
             pygame.display.flip()
