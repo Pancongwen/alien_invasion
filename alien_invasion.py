@@ -33,6 +33,7 @@ class AlienInvasion():
             gf.check_events(self.setting, screen, ship, bullets)
             ship.update()
             gf.update_bullets(bullets)
+            gf.update_aliens(self.setting, aliens)
             gf.update_screen(self.setting.WindowColor, screen, ship, aliens, bullets)
             pygame.display.flip()
 

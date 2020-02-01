@@ -25,3 +25,18 @@ class Alien(Sprite):
         """Draw alien
         """
         self.screen.blit(self.image, self.rect)
+
+    def check_edges(self):
+        """
+        """
+        screen_rect = self.screen.get_rect()
+        if self.rect.right >= screen_rect.right:
+            return True
+        elif self.rect.left <= 0:
+            return True
+
+    def update(self):
+        """Alien movement
+        """
+        self.x += self.setting.AlienSpeedFactor * self.setting.FleetDirection
+        self.rect.x = self.x

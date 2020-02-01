@@ -17,3 +17,7 @@ class Setting():
         self.BulletHeight = 13
         self.BulletColor = 60, 60, 60
         self.BulletAllowed = 3
+
+        self.AlienSpeedFactor = 1
+        self.FleetDropSpeed = 10
+        self.FleetDirection = 1
